@@ -5,6 +5,9 @@ count = 23
 // type inference 类型推断。
 let countB = 23
 
+let countC
+countC = 233
+
 let num1 = 1
 let num2 = 2
 let sum = num1 + num2

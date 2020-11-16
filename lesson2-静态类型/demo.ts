@@ -2,6 +2,9 @@
 const num: number = 123
 
 const Name: string = 'LinYY'
+// 变量的类型可以有多个，比如可以是number或string类型。
+let temp: number | string = 23
+temp = '23'
 
 // (2)对象类型 object type。 object，array, class， function
 let person: {
