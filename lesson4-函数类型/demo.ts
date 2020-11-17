@@ -1,3 +1,14 @@
+// 避免意外的 bug，但传入的 person 中没有 name 属性时下面的代码会报错，TS 能规避这个问题
+const getName = (person) => {
+    console.log(person.name)  // ==> undefined
+}
+
+const getName1 = (person: { name: string }) => {
+    console.log(person.name)
+}
+
+
+
 // 要求返回值是 number 数字类型，下面两种写法等价。
 const  foo = (a: number, b: number): number => {
     return a+ b
