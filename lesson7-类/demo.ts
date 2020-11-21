@@ -20,3 +20,26 @@ class Student extends Person {
 }
 const student = new Student()
 console.log(student.say())   // ==> LinYY
+
+// constructor 示例
+class PersonB {
+    public name
+    constructor( name: string) {
+        this.name = name
+    }
+}
+
+// 简化写法。
+// class PersonB {
+//     constructor(public name: string) {
+//     }
+// }
+const personB = new PersonB('LinYY')
+
+class Teacher extends PersonB {
+    constructor(public age: number ) {
+        super('LinYY')  // 初始化父类的 name
+    }
+}
+
+const teacher = new Teacher(18)
