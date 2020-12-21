@@ -46,8 +46,6 @@ getAge(person1)
 
 
 // 示例三 [propName: string]: any
-
-
 interface User {
     name: string,
     age: number,

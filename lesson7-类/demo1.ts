@@ -34,7 +34,7 @@ abstract class Classic {
     abstract getApiData()   // 一个抽象方法
 }
 
-// const classic = new Classic() // 无法创建抽象类的实例
+// const classic = new Classic() // 无法创建抽象类的实例，只能被继承
 
 class Music extends Classic {
     async getApiData() {
