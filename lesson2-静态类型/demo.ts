@@ -6,7 +6,7 @@ const Name: string = 'LinYY'
 let temp: number | string = 23
 temp = '23'
 
-// (2)对象类型 object type。 object，array, class， function
+// (2)对象类型 object type。object {}，array [], class {}， function
 let person: {
     name: string,
     age: number
@@ -24,10 +24,10 @@ const list: number[] = [12, 23, 34]
 class Person {}
 const LinYY = new Person()
 
-// function 函数类型, 下面的含糊类型要求返回值是number 数字类型，写成其他类型如 string 会报错。
+// function 函数类型, 下面的函数类型要求返回值是 number 数字类型，写成其他类型如 string 会报错。
 
 const getNumber: () => number = () => {
-    // return 'LinYY'
+    // return 'LinYY'   报错
     return 123
 }
 
@@ -36,7 +36,6 @@ const getString: () => string = () => {
     return 'LinYY'
     // return 123
 }
-
 
 // (3)自定义类型
 interface Point {

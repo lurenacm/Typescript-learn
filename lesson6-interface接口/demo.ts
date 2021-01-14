@@ -32,7 +32,7 @@ const person1 = {
     name: 'LinYY',
     age: 18,
     ID: 201,
-    sex: 'male'     // 不在 Person 接口内。
+    sex: 'male'     // 不在 Person 接口内，也可以通过校验
 }
 getAge(person1)
 

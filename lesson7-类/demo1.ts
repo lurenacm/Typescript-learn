@@ -38,7 +38,7 @@ abstract class Classic {
 
 class Music extends Classic {
     async getApiData() {
-      return await axios.get('api1').then( res => {
+      return await axios.get('api1URL').then( res => {
           console.log(res)
       }).catch( e => {
         console.log(e)
@@ -48,7 +48,7 @@ class Music extends Classic {
 
 class Book extends Classic {
     async getApiData() {
-      return await axios.get('api2').then( res => {
+      return await axios.get('api2URL').then( res => {
           console.log(res)
       }).catch( e => {
           console.log(e)
@@ -58,7 +58,7 @@ class Book extends Classic {
 
 class Sentence extends Classic {
    async getApiData() {
-      return await axios.get('api3').then( res => {
+      return await axios.get('api3URL').then( res => {
           console.log(res)
       }).catch( e => {
         console.log(e)
