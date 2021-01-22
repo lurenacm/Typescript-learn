@@ -22,19 +22,6 @@ function sum2(a: number, b: number): void {
     console.log(a+b)
 }
 
-// never 类型
-function errorFunc(): never {
-    throw new Error()
-    console.log('never')    // 抛出错误后 这段代码不打印。
-}
-
-function abs(): never {
-    while (true) {
-        
-    }
-    console.log('never')    // 上面的代码永远是true 这段代码不打印。
-}
-
 // 函数参数解构
 // 不加入对象类型的注解{a: number, b: number}，返回值则不能保证是预期的类型.
 function add ({a, b}: {a: number, b: number}): number {

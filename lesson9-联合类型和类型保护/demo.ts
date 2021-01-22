@@ -18,6 +18,8 @@ function trainAnimal (animal: Bird | Dog) {
 function trainAnimal1 (animal: Bird | Dog) {
     if (animal.fly){
         (animal as Bird).sing() //直接告诉 TS 这里 animal 是 Bird 类型
+        // 或下面的一种写法
+        // (<Bird>animal).sing()
     }else {
         (animal as Dog).dark()
     }

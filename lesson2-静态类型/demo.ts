@@ -1,9 +1,55 @@
-// (1)基础类型。number string null undefined symbol boolean void 。。。
+// (1)基础类型。number string null undefined symbol boolean any void never。。。
 const num: number = 123
 
 const Name: string = 'LinYY'
 
 const boolean: Boolean = true
+
+let n: null = null
+
+let u: undefined = undefined
+
+
+// any 类型，any 类型可以修改成其他任何类型，TS 不对 any 类型作类型检测
+let not: any
+not = 2
+not = '2'
+not = true
+
+// 处理不确定的数组类型 any 比较合适。
+let listArr: any[] = ['1', 2, true]
+
+// void 空类型，一般用于函数，
+function noReturn(): void {
+    console.log('no value return')
+}
+
+function fn(): void {
+    // Error
+    return 3;
+  }
+
+function fn5(): void {
+}
+let un: undefined = fn5(); // Error 不能将类型“void”分配给类型“undefined”
+
+let voidValue: void = undefined
+let voidValue2: void = null   // 不能将类型“null”分配给类型“void”
+
+
+// never 类型，不会执行结束的函数类型
+function errorFunc(): never {
+    throw new Error()
+    console.log('never')    // 抛出错误后 这段代码不打印。
+}
+
+function abs(): never {
+    while (true) {
+    }
+    console.log('never')    // 上面的代码永远是true 这段代码不打印。
+}
+
+
 
 // 变量的类型可以有多个，比如可以是number或string类型。
 let temp: number | string = 23
@@ -26,7 +72,7 @@ const listA: Array<number> = [1, 2, 3]
 
 // const listB: number[] = ['12', 23, 34]
 
-// class  类类型
+// class  类 类型
 class Person {}
 const LinYY = new Person()
 
@@ -53,4 +99,3 @@ const point: Point = {
     x: 2,
     y: 4
 }
-
