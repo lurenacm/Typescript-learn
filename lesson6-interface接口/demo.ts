@@ -1,3 +1,21 @@
+// 一个简单实例示例说明 interface 是一个类对象
+interface PersonA {
+    firstName: string,
+    lastName: string
+}
+
+function greeter(person: PersonA) {
+    return person.firstName + person.lastName
+}
+
+let userA = {
+    firstName: 'lin',
+    lastName: 'YY'
+}
+
+greeter(userA)
+
+// 
 interface Person {
     name: string,
     age: number,

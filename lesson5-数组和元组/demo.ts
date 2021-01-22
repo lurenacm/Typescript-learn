@@ -22,8 +22,8 @@ const objectArr1: User[] = [{
 
 // 数据结构一致 TS 不会报错
 class Teacher {
-    name: string
-    age: number
+    name: string = ''
+    age: number = 0
 }
 
 // 这里是一个 Teacher 类，那么每一个元素都应该是 Teacher 的实例，但是由于下面的对象数据结构和 Teacher类一致，所以 TS 没有报错。
@@ -44,7 +44,19 @@ const objectArr2: Teacher[] = [
 // }]
 
 // tuple 元组的定义
-const arrT: [number, string, number] = [18, 'LinYY', 3]
+let arrT: [number, string, number]
+arrT = [18, 'LinYY', 3]
+
+// 元素操作方法
+arrT[0].toExponential(1)
+arrT[1].split('i')
+arrT[2] = 4
+
+// 类型不对应就会报错
+arrT = [18, 'LinYY', '1']
+
+// 越界元素，直接报错
+arrT[3] = '12' // 不能将类型“"12"”分配给类型“undefined”
 
 type tupleArr =  [number, string, number]
 const arrTB: tupleArr = [18, 'LinYY', 3]

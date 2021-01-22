@@ -1,3 +1,18 @@
+// 枚举是一种数据类型
+enum Color {
+    Red,
+    Blue,
+    Black
+}
+
+
+let color: Color
+// 类型也只能是枚举 Color 类型
+color = Color.Red
+color = Color.Blue
+console.log('color', color) // ==> 打印出下标 1
+
+// 枚举一般首字母大写
 enum Status  {
     // OFFLINE = 1,
     OFFLINE,

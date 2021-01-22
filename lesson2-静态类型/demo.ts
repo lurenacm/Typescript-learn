@@ -2,6 +2,9 @@
 const num: number = 123
 
 const Name: string = 'LinYY'
+
+const boolean: Boolean = true
+
 // 变量的类型可以有多个，比如可以是number或string类型。
 let temp: number | string = 23
 temp = '23'
@@ -17,6 +20,9 @@ let person: {
 
 // 数组类型也是对象类型，下面声明number型数组只能写入数字来初始化，写入字符串将会报错。
 const list: number[] = [12, 23, 34]
+
+//等同于，下面的数组泛型，泛型是什么之后会讲，先留一个印象。
+const listA: Array<number> = [1, 2, 3]
 
 // const listB: number[] = ['12', 23, 34]
 
