@@ -15,7 +15,7 @@ let userA = {
 
 greeter(userA)
 
-// 
+// 或
 interface Person {
     name: string,
     age: number,
@@ -35,24 +35,31 @@ const getName = (person: Person) => {
     console.log(person.age)
     // console.log(person.age1)  ==> 0
     console.log(person.ID)
-   // person.ID = 200     // 报错 ID只能读取，不能修改==> error TS2540: Cannot assign to 'ID' because it is a read-only property
+    // person.ID = 200     // 报错 ID只能读取，不能修改==> error TS2540: Cannot assign to 'ID' because it is a read-only property
 }
 
 getName(person)
 
 // 示例二
+function printName(obj: { name: string }) {
+    console.log(obj.name)
+}
 
+let myObj = { name: 'LinYY', age: 18 }
+printName(myObj)
+
+// 或
 const getAge = (person1: Person) => {
     console.log(person1.age)
 }
 
-const person1 = {
+const per = {
     name: 'LinYY',
     age: 18,
     ID: 201,
     sex: 'male'     // 不在 Person 接口内，也可以通过校验
 }
-getAge(person1)
+getAge(per)
 
 // 以字面量的形式传入，TS 会强校验导致校验不通过。
 // getAge({
@@ -93,6 +100,17 @@ getSex({
 
 
 // interface 中定义方法
+interface Search{
+    (a: number, b: number): boolean
+}
+
+let search: Search
+search = function(a: number, b: number): boolean {
+    return a >= b
+}
+search(2, 3)
+
+// 或
 interface Action {
     name: string,
     age: number,
@@ -116,21 +134,21 @@ applySay(action)
 // class implements
 
 class test implements Person {
-    name: 'LinYY'
-    age: 18
-    ID: 301
+    name = 'LinYY'
+    age = 18
+    ID = 301
 }
 
 // 被其他接口继承 extends
 
-interface Person {
+interface PersonB {
     name: string,
     age: number,
     age1?: number,   // age1 是接口可能用到的属性。
     readonly ID: number
 }
 
-interface Teach extends Person {
+interface Teach extends PersonB {
     action(): string
 }
 
