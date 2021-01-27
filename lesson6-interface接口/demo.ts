@@ -131,8 +131,9 @@ const action = {
 
 applySay(action)
 
-// class implements
+// implements 和 extend 不同 extend 是继承父类，implement 是继承接口 interface 而且可以使用多个接口，用逗号隔开。
 
+// class A extends B implements C,D,E
 class test implements Person {
     name = 'LinYY'
     age = 18
@@ -140,7 +141,24 @@ class test implements Person {
 }
 
 // 被其他接口继承 extends
+interface Music {
+    click: boolean
+}
 
+interface Sentence {
+    color: string
+}
+
+interface Classic extends Music, Sentence {
+    time: number
+}
+
+let classic = {} as Classic
+classic.click = false
+classic.color = 'white'
+classic.time = 220
+
+// 或
 interface PersonB {
     name: string,
     age: number,
@@ -159,6 +177,15 @@ const teach: Teach = {
     action() {
         return '222'
     }
+}
+
+// interface 继承 class 示例
+class Animal {
+     fly: any
+}
+
+interface Dog extends Animal {
+    run(): void
 }
 
 // interface 定义函数类型
