@@ -1,13 +1,16 @@
 // TS 中类的定义
-class Person {
-    name= 'LinYY'
+class PersonA {
+    name: string
+    constructor(msg) {
+        this.name = msg
+    }
     getName() {
         return this.name
     }
 }
 
-const person = new Person()
-console.log(person.getName())   // ==> LinYY
+const personA = new PersonA('LinYY')
+console.log(personA.getName())   // ==> LinYY
 
 // TS 类的继承
 class Student extends Person {
@@ -23,7 +26,7 @@ console.log(student.say())   // ==> LinYY
 
 // constructor 示例
 class PersonB {
-    public name
+    public name: string
     constructor( name: string) {
         this.name = name
     }
@@ -36,10 +39,43 @@ class PersonB {
 // }
 const personB = new PersonB('LinYY')
 
-class Teacher extends PersonB {
+class TeacherA extends PersonB {
     constructor(public age: number ) {
         super('LinYY')  // 初始化父类的 name
     }
 }
 
-const teacher = new Teacher(18)
+const teacher = new TeacherA(18)
+
+
+
+// static 
+class GetAge {
+    static  age = 18
+    static printAge() {
+        console.log(GetAge.age)
+    }
+    static setAge(msg: number) {
+        this.age = msg
+        this.printAge()
+    }
+}
+
+// 将 class 当作接口使用
+class A {
+    x: number
+    y: number
+    constructor(x: number, y: number) {
+        this.x = x
+        this.y = y
+    }
+}
+
+interface B extends A {
+    z: number
+}
+
+let printA: A = {x: 2, y: 3}
+
+let printB: B = {x: 1, y: 2, z: 3}
+

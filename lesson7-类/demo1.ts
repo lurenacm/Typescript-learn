@@ -18,11 +18,12 @@ console.log(person.name)    // ==> LinYY 调用 get 下面的 name 属性
 person.name = 'LinYYB'  // 调用 set 下面的 name 属性同时赋值
 console.log(person.name)    // ==> LinYYB
 
-
 // 装饰器`readonly`用来装饰“类”的`name`属性。
 class PersonB {
     readonly name: string
-    constructor(private _name: string){}    // 私有属性一般加下划线 '_'
+    constructor(private _name: string){
+        this.name = _name
+    }    // 私有属性一般加下划线 '_'
 }
 
 // 抽象类 abstract
