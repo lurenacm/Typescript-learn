@@ -41,3 +41,4 @@ function add2({ a, b }): number {
     const c = a + b
     return c
 }
+
