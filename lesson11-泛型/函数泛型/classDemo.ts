@@ -12,12 +12,12 @@ console.log(res)
 
 
 // 继承示例 extends
-interface person {
+interface personA {
     name: string,
     age: number
 }
 
-class GetItemSecond<T extends person>{
+class GetItemSecond<T extends personA>{
     constructor(private data: T[]) { }
     getName(index: number) {
         return this.data[index].name
