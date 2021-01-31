@@ -1,7 +1,23 @@
 // 交叉类型
+interface Colors{
+    red: string
+}
 
+interface Rectangle {
+    height: number
+    width: number
+    area: () => number
+}
 
-
+// param 参数可以访问类型 Colors 和 Rectangle 所有属性
+function getArea(param: Colors & Rectangle) {
+    param.height = 2
+    param.width = 3
+    param.red = 'red'
+    param.area = (): number => {
+        return param.height * param.width
+    }
+}
 
 //  联合类型
 interface Bird {
