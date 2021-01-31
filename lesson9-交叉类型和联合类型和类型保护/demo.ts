@@ -1,3 +1,9 @@
+// 交叉类型
+
+
+
+
+//  联合类型
 interface Bird {
     fly: Boolean;
     sing: () => {}
@@ -8,7 +14,7 @@ interface Dog {
     dark: () => {}
 }
 
-// 联合类型 animal 参数可以是 Bird 或 Dog，语法提示可以直接提示出共有属性 fly，但是不能直接提示出 sing 和 dark。
+// animal 参数可以是 Bird 或 Dog，语法提示可以直接提示出共有属性 fly，但是不能直接提示出 sing 和 dark。
 function trainAnimal (animal: Bird | Dog) {
     animal.fly
     // animal.dark() 这里直接报错，因为不能确保 animal 包含 dark 方法。
