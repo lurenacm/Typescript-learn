@@ -1,4 +1,22 @@
 // 类泛型的普通写法
+class GenericType<T> {
+    numberVal: T
+    constructor(numberVal: T) {
+        this.numberVal = numberVal;
+      } 
+    add(x: T, y: T) {
+    }
+}
+
+let numberType = new GenericType<number>(2)
+numberType.numberVal = 1
+numberType.add(2, 8)
+
+let stringType = new GenericType<string>('a')
+stringType.numberVal = 'b'
+stringType.add('a', 'b')
+
+// 或
 class GetItem<T>{
     constructor(private data: T[]) { }
     getName(index: number) {

@@ -21,6 +21,20 @@ add<string>('1', '2')
 add<number>(1, '1') //提示报错 "1"的类型不是 number 型
 add<string>('1', 2)  //提示报错 2 的类型不是 string 型
 
+// 泛型同样可以继承 interface。
+interface LengthPro {
+    age: number | null
+    moreAge: number
+}
+
+function arg<T extends LengthPro>(params: T) {
+    return params.age || params.moreAge
+}
+
+arg({age: 18, moreAge: 20})
+arg({age: null, moreAge: 20})
+
+
 //泛型约束，约束函数的参数类型
 
 //将函数的泛型指定为 ABC，参数的泛型是数组类型ABC，返回值也是数组类型ABC。
@@ -44,3 +58,13 @@ function moreT<T, Y>(a:T, b: Y) {
 }
 
 moreT<number, string>(1, '2')
+
+// K extends keyof T，让泛型 K 继承 T 的 keyof 的属性
+function getObjVal<T, K extends keyof T>(obj:T, key: K) {
+    return obj[key]
+}
+
+let o = {a: 1, b: 3, c: 4}
+
+getObjVal(o, 'a')
+getObjVal(o, 'd')   // 'd' 不是 对象 o 下面的 keyof 属性。
