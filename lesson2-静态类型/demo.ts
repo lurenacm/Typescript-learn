@@ -49,7 +49,15 @@ function abs(): never {
     console.log('never')    // 上面的代码永远是true 这段代码不打印。
 }
 
+// undefined 类型
+interface E {
+    b: number
+    c?: number
+}
 
+let e: E = {b: 12, c: 12}
+
+e = {b: 23, c: undefined}
 
 // 变量的类型可以有多个，比如可以是number或string类型。
 let temp: number | string = 23

@@ -1,5 +1,5 @@
 // 交叉类型
-interface Colors{
+interface Colors {
     red: string
 }
 
@@ -20,6 +20,11 @@ function getArea(param: Colors & Rectangle) {
 }
 
 //  联合类型
+
+let bar: string | number = 12
+bar = '12'
+
+
 interface Bird {
     fly: Boolean;
     sing: () => {}
@@ -31,35 +36,45 @@ interface Dog {
 }
 
 // animal 参数可以是 Bird 或 Dog，语法提示可以直接提示出共有属性 fly，但是不能直接提示出 sing 和 dark。
-function trainAnimal (animal: Bird | Dog) {
+function trainAnimal(animal: Bird | Dog) {
     animal.fly
     // animal.dark() 这里直接报错，因为不能确保 animal 包含 dark 方法。
 }
 
 //类型保护——类型断言 as
-function trainAnimal1 (animal: Bird | Dog) {
-    if (animal.fly){
+function trainAnimal1(animal: Bird | Dog) {
+    if (animal.fly) {
         (animal as Bird).sing() //直接告诉 TS 这里 animal 是 Bird 类型
         // 或下面的一种写法
         // (<Bird>animal).sing()
-    }else {
+    } else {
         (animal as Dog).dark()
     }
 }
 
 // in 判断
-function trainAnimal2 (animal: Bird | Dog) {
+function trainAnimal2(animal: Bird | Dog) {
     if ("sing" in animal) {   // 判断 animal中是否含有私有属性 sing
         animal.sing()
-    }else {
+    } else {
         animal.dark()
     }
 }
 
 // typeof 类型保护
-function trainAnimal3 (paramA: number | string, paramB: number | String) {
+function trainAnimal3(paramA: number | string, paramB: number | String) {
     if (typeof paramA === "string" && typeof paramB === "string") {
         return paramA + paramB
     }
     return
 }
+
+// null 类型保护
+
+function fn(params: string | null) {
+    // params.length   // 对象可能为 "null"
+    return params!.length   // 将 null 类型排除
+}
+
+fn('12121')
+fn(null)
