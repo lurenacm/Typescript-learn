@@ -20,7 +20,6 @@ function getArea(param: Colors & Rectangle) {
 }
 
 //  联合类型
-
 let bar: string | number = 12
 bar = '12'
 

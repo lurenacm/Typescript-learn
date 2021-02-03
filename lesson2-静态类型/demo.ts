@@ -82,7 +82,7 @@ const listA: Array<number> = [1, 2, 3]
 
 // class  类 类型
 class Person {}
-const LinYY = new Person()
+const LinYY: Person = new Person()
 
 // function 函数类型, 下面的函数类型要求返回值是 number 数字类型，写成其他类型如 string 会报错。
 
