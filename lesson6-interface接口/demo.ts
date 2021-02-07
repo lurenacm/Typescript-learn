@@ -1,4 +1,6 @@
 // 一个简单实例示例说明 interface 是一个类对象
+
+/**  this is PersonA interface */
 interface PersonA {
     firstName: string,
     lastName: string
@@ -100,12 +102,12 @@ getSex({
 
 
 // interface 中定义方法
-interface Search{
+interface Search {
     (a: number, b: number): boolean
 }
 
 let search: Search
-search = function(a: number, b: number): boolean {
+search = function (a: number, b: number): boolean {
     return a >= b
 }
 search(2, 3)
@@ -131,7 +133,7 @@ const action = {
 
 applySay(action)
 
-// implements 和 extend 不同 extend 是继承父类，implement 是继承接口 interface 而且可以使用多个接口，用逗号隔开。
+// implements 和 extend 不同 extend 是继承父类，implement 是实现接口 interface 而且可以使用多个接口，用逗号隔开。
 
 // class A extends B implements C,D,E
 class test implements Person {
@@ -179,9 +181,18 @@ const teach: Teach = {
     }
 }
 
+const teachA = <Teach>{
+    name: 'LinYY',
+    age: 28,
+    ID: 501,
+    action() {
+        return '222'
+    }
+}
+
 // interface 继承 class 示例
 class Animal {
-     fly: any
+    fly: any
 }
 
 interface Dog extends Animal {
@@ -201,9 +212,47 @@ const foo: Say = (word: string) => {
 foo('hello TS')   //  ==> 'hello TS'
 
 
+// interface 和 type alias
+/** ifc is interface */
+interface Ifc {
+    name: string,
+    age: number
+}
 
+/** T is type alias */
+type T = {
+    name: string,
+    age: number
+}
 
+/* interface 和 type alias 扩展示例 */
+interface IfcName {
+    name: string
+}
+interface IfcAge extends IfcName {
+    age: number
+}
 
+type TName = {
+    name: string
+}
+/** TAge 继承了 TName 的 name 属性*/
+type TAge = TName & {
+    age: number
+}
+const tAge : TAge = {
+    name: 'LinYY',
+    age: 18
+}
 
+/* interface 和 type alias 相互继承示例 */
 
+/** interface  extends type alias */
+interface IfcAge extends TName {
+    age: number
+}
 
+/** type  extends interface alias */
+type TypeName = IfcAge & {
+    name: string
+}

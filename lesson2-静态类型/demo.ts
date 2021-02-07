@@ -107,3 +107,18 @@ const point: Point = {
     x: 2,
     y: 4
 }
+
+// 注释
+/**
+ * this is good Per
+ */
+interface Per {
+    name: string
+    /** this is a age */
+    age: number
+}
+
+const p: Per ={
+    name: 'LinYY',
+    age: 18
+}
