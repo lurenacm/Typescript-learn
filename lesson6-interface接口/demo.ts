@@ -211,6 +211,17 @@ const foo: Say = (word: string) => {
 
 foo('hello TS')   //  ==> 'hello TS'
 
+/**interface 间还能相互嵌套 */
+interface A {
+    name: string,
+    age: number
+}
+
+interface B {
+/** person is interface a */
+    person: A
+}
+
 
 // interface 和 type alias
 /** ifc is interface */

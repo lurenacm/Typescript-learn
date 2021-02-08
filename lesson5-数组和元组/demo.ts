@@ -70,3 +70,10 @@ const attTC: tupleArr[] =[
 // 普通数组不能约束每一项元素的类型，下面元素的类型就不可以约束
 let list: (number | string)[] = ['LinYY', 18] 
 let listB: (number | string)[] = [18, 'LinYY']
+
+/**巧用元组 */
+function getParams(...arry:[string, number, boolean]){
+    const str: string = arry[0];
+    const num: number = arry[1];
+    const b: boolean = arry[2];
+}
